@@ -17,5 +17,17 @@ public class TarjetaImpl extends UnicastRemoteObject implements TarjetaInterface
         return cuentas.getOrDefault(numeroTarjeta, 0.0);
     }
 
+    public boolean pagar(String numeroTarjeta, double monto) throws RemoteException {
+        double saldo = cuentas.getOrDefault(numeroTarjeta, 0.0);
+        if (saldo >= monto) {
+            cuentas.put(numeroTarjeta, saldo - monto);
+            return true;
+        }
+        return false;
+    }
 
+    public void recargar(String numeroTarjeta, double monto) throws RemoteException {
+        double saldo = cuentas.getOrDefault(numeroTarjeta, 0.0);
+        cuentas.put(numeroTarjeta, saldo + monto);
+    }
 }
