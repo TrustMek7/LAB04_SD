@@ -6,7 +6,7 @@ import java.rmi.registry.Registry;
 public class Cliente {
     public static void main(String[] args) {
         try {
-            Registry registry = LocateRegistry.getRegistry("localhost", 1100);
+            Registry registry = LocateRegistry.getRegistry("localhost",1100);
             TarjetaInterface tarjeta = (TarjetaInterface) registry.lookup("TarjetaService");
 
             String numero = "1234567890";
