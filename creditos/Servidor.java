@@ -7,7 +7,7 @@ public class Servidor {
     public static void main(String[] args) {
         try {
             TarjetaImpl obj = new TarjetaImpl();
-            Registry registry = LocateRegistry.createRegistry(1099);
+            Registry registry = LocateRegistry.createRegistry(1100);
             registry.rebind("TarjetaService", obj);
             System.out.println("Servidor listo.");
         } catch (Exception e) {
